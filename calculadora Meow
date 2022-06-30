@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Calculadora</title>
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+.todo{
+    background-image: url(http://www.elfinha.com/wp-content/uploads/2010/05/Alice_HStern1.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 1900px;
+}
+.calculadora{
+    position: absolute;
+    background-image: url(https://st4.depositphotos.com/1064024/19923/i/450/depositphotos_199232842-stock-photo-enchanted-wood-with-a-clock.jpg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    padding: 55px;
+
+}
+.botao{
+    height: 50px;
+    width: 50px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(130, 243, 224, 0.445);
+    border-radius: 50px;
+    margin-left: 11px;
+    border: none;
+}
+.botao :hover{
+    background-color: black;
+}
+#total{
+    width: 230px;
+    background-color: white;
+    height: 30px;
+    margin: 5px;
+    font-size: 25px;
+    color: black;
+    text-align: right;
+    padding: 5px;
+}
+.texto{
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.301);
+    text-align: center;
+}
+.wanda{
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -10%);
+    color: rgb(250, 250, 250);
+    background-color: rgba(255, 255, 255, 0.089);
+    font-family: 'Brush Script MT';
+    font-size: 35px;
+}
+
+    </style>
+
+
+</head>
+<body>
+    <div class="todo">
+        <div class="calculadora">
+            <h1 class="texto">Meowww</h1>
+        <p id=total></p>
+        <table>
+            <tr>
+                <input type="button" class="botao" onclick="clean()" value="AC">
+                <input type="button" class="botao" style="height: 49px;" onclick="back()" value="⌫">
+                <input type="button" class="botao" onclick="insert('%')" value="%">
+                <input type="button" class="botao" onclick="insert('/')" value="/"> <br>
+            </tr>
+            
+            <tr>
+                <input type="button" class="botao" onclick="insert('7')" value="7">
+                <input type="button" class="botao" onclick="insert('8')" value="8">
+                <input type="button" class="botao" onclick="insert('9')" value="9">
+                <input type="button" class="botao" onclick="insert('*')" value="*"> <br>
+            </tr>
+            <tr>
+                <input type="button" class="botao" onclick="insert('4')" value="4">
+                <input type="button" class="botao" onclick="insert('5')" value="5">
+                <input type="button" class="botao" onclick="insert('6')" value="6">
+                <input type="button" class="botao" onclick="insert('-')" value="-"> <br>
+            </tr>
+            <tr>
+                <input type="button" class="botao" onclick="insert('1')" value="1">
+                <input type="button" class="botao" onclick="insert('2')" value="2">
+                <input type="button" class="botao" onclick="insert('3')" value="3">
+                <input type="button" class="botao" onclick="insert('+')" value="+"> <br>
+            </tr>
+            <tr>
+                <input colspan="2" type="button" class="botao" style="width: 110px;" onclick="insert('0')" value="0">
+                <input type="button" class="botao" onclick="insert('.')" value=".">
+                <input type="button" class="botao" onclick="calcular()" value="=">
+            </tr>
+        </form>
+        </table>
+     </div>
+    </div>
+
+
+    <script>
+function insert(numero)
+{
+    var num = document.getElementById('total').innerHTML ;
+    document.getElementById('total').innerHTML = num + numero;
+}
+
+function clean ()
+{
+    document.getElementById('total').innerHTML = "";
+}
+
+function back ()
+{
+    var total = document.getElementById ('total').innerHTML;
+    document.getElementById('total').innerHTML = total.substring(0, total.length -1)
+}
+
+function calcular ()
+{
+    var total = document.getElementById ('total').innerHTML;
+    if (total){
+        document.getElementById('total').innerHTML = eval(total);
+    }
+    else{
+        document.getElementById('total').innerHTML = " "
+    }
+}
+    </script>
+        <p class="wanda">Alice in Wonderland</p>
+        
+
+</body>
+</html>
